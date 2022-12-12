@@ -30,6 +30,7 @@ export default class CertStreamClient{
 
         this.ws.on('close', () => {
             clearInterval(this.pingInterval);
+            this.connect(url)
         });
     }
 };
