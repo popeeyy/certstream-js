@@ -28,6 +28,10 @@ export default class CertStreamClient{
             this.callback(parsedMessage, this.context);
         });
 
+         this.ws.on('error', (err) => {
+            console.log("WEBSOCKET ERR", err)
+        });
+
         this.ws.on('close', () => {
             clearInterval(this.pingInterval);
             this.connect(url)
